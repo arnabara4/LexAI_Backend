@@ -1,0 +1,40 @@
+# --- Python Virtual Environment ---
+# This is your local "bubble" and should never be uploaded.
+.venv/
+venv/
+lib/
+lib64/
+include/
+bin/
+
+# --- Secrets ---
+# CRITICAL: This line keeps your API keys and passwords safe.
+.env
+*.env.local
+
+# --- Local Databases ---
+# This is your vector "library". It's data, not code.
+# You will upload this to your server manually (e.g., with scp).
+chroma_db/
+*.sqlite3
+
+# --- Python Cache & Temp Files ---
+# These are auto-generated and just create "noise" in commits.
+__pycache__/
+*.py[cod]
+*.log
+.pytest_cache/
+.coverage
+
+# --- OS-Specific (macOS) ---
+.DS_Store
+
+# --- Deployment ---
+# Any local deployment packages or state
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# --- IDE ---
+.vscode/
+.idea/

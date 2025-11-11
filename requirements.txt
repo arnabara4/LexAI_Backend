@@ -1,0 +1,33 @@
+# --- Core Flask Application & Deployment ---
+Flask
+gunicorn              # The production server that will run your app
+Flask-CORS            # Handles cross-origin requests from your frontend
+python-dotenv         # Reads your .env file
+
+# --- Authentication & Database (Postgres) ---
+Flask-SQLAlchemy      # The ORM for your database
+Flask-Migrate         # Handles database schema changes (e.g., adding a column)
+psycopg2-binary       # The Python driver for PostgreSQL
+Flask-Bcrypt          # For securely hashing user passwords
+Flask-JWT-Extended    # Manages all your Access and Refresh Tokens (cookies, etc.)
+
+# --- Email & Validation ---
+Flask-Mail            # For sending verification & password reset emails
+certifi               # Fixes the SSL/TLS certificate error for Flask-Mail
+pydantic              # For validating API request data (your schemas.py)
+pydantic-settings     # Required by ChromaDB & Pydantic v2
+
+# --- RAG - Ingestion (ingest.py) ---
+# These are needed to build your "Library"
+pypdf                 # Reads text from digital PDFs
+pytesseract           # The OCR engine for reading "photo" PDFs
+pdf2image             # Converts PDF pages to images for Tesseract
+chromadb              # Your local vector database (the chroma_db folder)
+
+# --- RAG - Live AI Models ---
+# This is the "brain" of your app
+sentence-transformers # Runs the 'bge-m3' model *locally* for embeddings
+torch                 # The core AI/ML framework for sentence-transformers
+langchain-core        # Provides (HumanMessage, SystemMessage, AIMessage)
+langchain-google-genai# The "Analyzer" (Gemini 1.5 Pro)
+langchain-ollama      # The "Chatter" (Ollama / phi3:mini)
