@@ -7,10 +7,12 @@ from datetime import datetime, timedelta, timezone  # ✅ use class-level import
 import hashlib
 import secrets
 from pydantic import BaseModel, EmailStr, constr, ValidationError
+from flask import current_app
 
+frontend_url = current_app.config['FRONTEND_URL']
 
 def send_verification_email(user, token):
-    verification_url = f"http://localhost:5173/verify-email?token={token}"
+    verification_url = f"{frontend_url}/verify-email?token={token}"
 
     msg = Message(
         subject="Welcome! Please verify your email.",
